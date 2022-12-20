@@ -1,6 +1,7 @@
 package br.com.alura.lojinha.model;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +23,19 @@ public class Produto {
 	private String descricao;
 	@Column(name = "preco")
 	private BigDecimal preco;
+	@Column(name = "data_cadastro")
+	private LocalDate dataCadastro = LocalDate.now();
+	@Column(name = "categoria")
+	private Categoria categoria;
 	
+	public Produto(){}
+
+	public Produto(String nome, String descricao, BigDecimal preco, Categoria categoria) {
+		this.nome = nome;
+		this.descricao = descricao;
+		this.preco = preco;
+		this.categoria = categoria;
+	}
 	public Long getId() {
 		return id;
 	}
@@ -46,6 +59,19 @@ public class Produto {
 	}
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	
+	public LocalDate getDataCadastro() {
+		return dataCadastro;
+	}
+	public void setDataCadastro(LocalDate dataCadastro) {
+		this.dataCadastro = dataCadastro;
 	}
 	
 	
