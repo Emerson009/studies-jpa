@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +26,7 @@ public class Produto {
 	private BigDecimal preco;
 	@Column(name = "data_cadastro")
 	private LocalDate dataCadastro = LocalDate.now();
-	@Column(name = "categoria")
+	@ManyToOne
 	private Categoria categoria;
 	
 	public Produto(){}
